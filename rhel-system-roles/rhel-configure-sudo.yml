@@ -1,0 +1,20 @@
+---
+- name: Set up sudo access with RHEL system roles
+  hosts: all
+  gather_facts: false
+  become: true
+
+  vars:
+    sudo_sudoers_files:
+      - path: /etc/sudoers.d/admins-nopass
+        user_specifications:
+          - users:
+              - sam
+              - aapsvc
+            hosts:
+              - ALL
+            operators:
+              - ALL
+            commands:
+              - "NOPASSWD: ALL"
+            
