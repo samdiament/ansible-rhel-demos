@@ -521,7 +521,7 @@
   - unknown_strategy | bool
 
 - name: Disable the GNOME3 Login User List
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/distro.d/00-security-settings
     section: org/gnome/login-screen
     option: disable-user-list
@@ -616,7 +616,7 @@
   - unknown_strategy | bool
 
 - name: Disable XDMCP in GDM
-  ini_file:
+  community.general.ini_file:
     path: /etc/gdm/custom.conf
     section: xdmcp
     option: Enable
@@ -664,7 +664,7 @@
   - unknown_strategy | bool
 
 - name: Disable GNOME3 Automounting - automount
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/local.d/00-security-settings
     section: org/gnome/desktop/media-handling
     option: automount
@@ -769,7 +769,7 @@
   - unknown_strategy | bool
 
 - name: Disable GNOME3 Automounting - automount-open
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/local.d/00-security-settings
     section: org/gnome/desktop/media-handling
     option: automount-open
@@ -874,7 +874,7 @@
   - unknown_strategy | bool
 
 - name: Disable GNOME3 Automounting - autorun-never
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/local.d/00-security-settings
     section: org/gnome/desktop/media-handling
     option: autorun-never
@@ -981,7 +981,7 @@
   - unknown_strategy | bool
 
 - name: Set GNOME3 Screensaver Inactivity Timeout
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/local.d/00-security-settings
     section: org/gnome/desktop/session
     option: idle-delay
@@ -1062,7 +1062,7 @@
   - unknown_strategy | bool
 
 - name: Set GNOME3 Screensaver Lock Delay After Activation Period
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/local.d/00-security-settings
     section: org/gnome/desktop/screensaver
     option: lock-delay
@@ -1652,7 +1652,7 @@
   - no_reboot_needed | bool
 
 - name: Ensure GPG check is globally activated
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dnf/dnf.conf
     section: main
     option: gpgcheck
@@ -2242,7 +2242,7 @@
   - unknown_strategy | bool
 
 - name: Enable GNOME3 Login Warning Banner
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/distro.d/00-security-settings
     section: org/gnome/login-screen
     option: banner-message-enable
@@ -2403,7 +2403,7 @@
   - unknown_strategy
 
 - name: Set the GNOME3 Login Warning Banner Text
-  ini_file:
+  community.general.ini_file:
     dest: /etc/dconf/db/distro.d/00-security-settings
     section: org/gnome/login-screen
     option: banner-message-text
