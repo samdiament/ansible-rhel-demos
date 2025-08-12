@@ -1,0 +1,9 @@
+---
+- name: Run openscap remediation steps
+  hosts: all
+  
+  tasks:
+    - name: Run RedHatOfficial.rhel9_cis role
+      when: os == "RHEL9" and profile = "CIS Level 2 - Server"
+      import_role:
+        name: RedHatOfficial.rhel9_cis
