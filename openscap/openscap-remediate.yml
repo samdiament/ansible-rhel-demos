@@ -4,6 +4,6 @@
   
   tasks:
     - name: Run RedHatOfficial.rhel9_cis role
-      when: os == "RHEL9" and profile = "CIS Level 2 - Server"
+      when: os == "RHEL9" and profile == "CIS Level 2 - Server"
       import_role:
         name: RedHatOfficial.rhel9_cis
