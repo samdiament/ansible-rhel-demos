@@ -1,0 +1,10 @@
+---
+- name: Install, configure, and run openscap scanner
+  hosts: all
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: insights compliance
+      import_role:
+        name: redhat.insights.compliance
