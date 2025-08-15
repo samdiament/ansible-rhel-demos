@@ -1,0 +1,29 @@
+---
+- name: Ensure RHEL system has lastest security patches
+  hosts: all
+  become: true
+  gather_facts: false
+
+  vars:
+    rhc_insights:
+      remediation: present
+      autoupdate: true
+    rhc_auth:
+      username: "{{ rhcc_username }}"
+      password: "{{ rhcc_password }}"
+
+  tasks:
+    - name: Ensure RHEL system has latest security patches
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+        security: true
+
+    - name: Ensure packages insights-client and rhc are installed
+      ansible.builtin.dnf:
+        name: [insights-client, rhc]
+        state: latest
+
+    - name: Kick off the Insights client tool
+      import_role:
+        name: redhat.rhel_system_roles.rhc
