@@ -2,6 +2,8 @@
   hosts: localhost
   sources:
     - redhat.insights_eda.insights:
+        host: 18.189.222.159
+        port: 5000
   rules:
     - name: match vulnerability event
       condition: |-
