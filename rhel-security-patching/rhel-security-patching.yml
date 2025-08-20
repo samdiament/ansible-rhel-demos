@@ -5,7 +5,9 @@
   gather_facts: false
 
   vars:
+    rhc_state: present
     rhc_insights:
+      state: present
       remediation: present
       autoupdate: true
     rhc_auth:
@@ -21,9 +23,14 @@
 
     - name: Ensure packages insights-client and rhc are installed
       ansible.builtin.dnf:
-        name: [insights-client, rhc]
+        name: [insights-client, rhc, subscription-manager]
         state: latest
 
-    - name: Kick off the Insights client tool
-      import_role:
+    - name: Ensure rhc is configured
+      include_role:
         name: redhat.rhel_system_roles.rhc
+
+    - name: Kick off the insights-client scan
+      ansible.builtin.command:
+        cmd: insights-client --upload
+      register: insights_output

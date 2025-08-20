@@ -1,0 +1,19 @@
+- name: Insights events
+  hosts: localhost
+  sources:
+    - redhatinsights.eda.insights:
+        token: ZWRhX2luc2lnaHRzX3NhbXVlbGRpYW1lbnQ=
+  rules:
+    - name: match vulnerability event
+      condition: |-
+        event.payload.application == "vulnerability"
+        and event.payload.event_type in [
+          "new-recommendation",
+          "any-cve-known-exploit",
+          "new-cve-cvss",
+          "new-cve-severity",
+          "new-cve-security-rule"
+        ]
+      action:
+        run_job_template:
+          name: insights_events.yml
