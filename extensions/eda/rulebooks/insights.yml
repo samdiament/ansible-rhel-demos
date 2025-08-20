@@ -2,7 +2,6 @@
   hosts: localhost
   sources:
     - redhat.insights_eda.insights:
-        token: ZWRhX2luc2lnaHRzX3NhbXVlbGRpYW1lbnQ=
   rules:
     - name: match vulnerability event
       condition: |-
