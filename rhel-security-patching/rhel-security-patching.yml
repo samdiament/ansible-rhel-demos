@@ -32,5 +32,5 @@
 
     - name: Kick off the insights-client scan
       ansible.builtin.command:
-        cmd: insights-client --upload
+        cmd: insights-client --quiet
       register: insights_output
