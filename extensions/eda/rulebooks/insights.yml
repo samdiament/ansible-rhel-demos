@@ -1,7 +1,7 @@
 - name: Insights events
   hosts: localhost
   sources:
-    - redhat.insights_eda:
+    - redhat.insights_eda.insights:
         token: ZWRhX2luc2lnaHRzX3NhbXVlbGRpYW1lbnQ=
   rules:
     - name: match vulnerability event
