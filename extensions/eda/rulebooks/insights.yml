@@ -17,4 +17,12 @@
         ]
       action:
         run_job_template:
-          name: insights_events.yml
+          name: "Security | RHEL | Handle Insights Events"
+    - name: match compliance-below-threshold event
+      condition: |- 
+        event.payload.application == "compliance"
+        and event.payload.event_type == "compliance-below-threshold"
+      action:
+        run_job_template:
+          name: "Security | RHEL | Handle Insights Events"
+
