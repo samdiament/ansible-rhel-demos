@@ -25,4 +25,7 @@
       action:
         run_job_template:
           name: "Security | RHEL | Handle Insights Events"
+          job_args:
+            extra_vars:
+              host: "{{ event.payload.events[0].payload.host_name }}"
 
