@@ -1,0 +1,9 @@
+---
+- name: Handle Event from Insights
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Print a debug message
+      ansible.builtin.debug:
+        msg: "Handle an event from Insights"
