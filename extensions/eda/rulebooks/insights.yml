@@ -34,7 +34,7 @@
         and event.payload.event_type == "detected-malware"
       action:
         run_job_template:
-          name: "Security | RHEL | Scan for malware with Insights"
+          name: "Security | RHEL | Insights Detected Malware"
           job_args:
             extra_vars:
               host: "{{ event.payload }}"
