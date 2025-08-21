@@ -27,7 +27,7 @@
           name: "Security | RHEL | Handle Insights Events"
           job_args:
             extra_vars:
-              host: "{{ event.payload.events[0].payload.host_name }}"
+              host: "{{ event.payload }}"
     - name: match malware detected event
       condition: |-
         event.payload.application == "malware-detection"
@@ -37,4 +37,4 @@
           name: "Security | RHEL | Scan for malware with Insights"
           job_args:
             extra_vars:
-              host: "{{ event.payload.events[0].payload.host_name }}"
+              host: "{{ event.payload }}"
